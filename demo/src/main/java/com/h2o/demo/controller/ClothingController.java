@@ -38,7 +38,7 @@ public class ClothingController {
         return clothingRepository.findAll(pageable);
     }
 	
-	@GetMapping()
+	@GetMapping("/search")
     public Page<Clothing> getClothes(@Valid @RequestBody Clothing clothingRequest,Pageable pageable) {
 		 double avgRating = reviewRepository.getAverageRating(clothingRequest.getId());
 		 int rating = (int)Math.ceil(avgRating);
